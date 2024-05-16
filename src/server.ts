@@ -2,9 +2,11 @@ import express, { type Request, type Response } from 'express';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 
+import { itemsRouter } from './items/items.router';
+
 interface ServerOptions {
- port: number;
- apiPrefix?: string;
+    port: number;
+    apiPrefix?: string;
 }
 
 export class Server {
@@ -30,6 +32,7 @@ export class Server {
   );
 
   // Test rest api
+  this.app.use("/api/menu/items", itemsRouter);
   this.app.get('/', (_req: Request, res: Response) => {
    return res.status(200).send({
     message: `Welcome to Initial API! \n Endpoints available at http://localhost:${this.port}/`
