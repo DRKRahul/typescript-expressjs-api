@@ -4,9 +4,9 @@
   "description": "A  sample API development project with typescript and expressjs",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --clear --transpile-only --ignore-watch node_modules ./src/app.ts",
+    "dev": "ts-node-dev --respawn --clear --transpile-only --ignore-watch node_modules ./src/index.ts",
     "build": "rimraf ./dist && tsc",
-    "start": "npm build && node dist/app.js",
+    "start": "npm build && node dist/index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage"
